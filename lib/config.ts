@@ -16,14 +16,23 @@ import {
   Site
 } from './types'
 
+// const rawRootNotionPageId = getSiteConfig('rootNotionPageId') as string
+// console.log('rawRootNotionPageId:', rawRootNotionPageId)
+//
+// const rootNotionPageId: string = parsePageId(rawRootNotionPageId, { uuid: false })
+// console.log('parsed rootNotionPageId:', rootNotionPageId)
+
 export const rootNotionPageId: string = parsePageId(
   getSiteConfig('rootNotionPageId'),
   { uuid: false }
 )
 
-if (!rootNotionPageId) {
-  throw new Error('Config error invalid "rootNotionPageId"')
-}
+console.log('config/ :24 - rootNotionPageId = ', rootNotionPageId)
+console.log('-------------------')
+
+// if (!rootNotionPageId) {
+//   throw new Error('Config error invalid "rootNotionPageId"')
+// }
 
 // if you want to restrict pages to a single notion workspace (optional)
 export const rootNotionSpaceId: string | null = parsePageId(

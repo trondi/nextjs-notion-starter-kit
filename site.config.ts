@@ -1,8 +1,23 @@
 import { siteConfig } from './lib/site-config'
+// import * as process from 'node:process'
+import process from 'process'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+console.log('site.config/ :8 - process.env.NOTION_URL = ', process.env.NOTION_URL)
+
+const rootNotionPageId =  String(process.env.NOTION_URL)|| '';
+
+// Validate the Notion page ID format
+// if (!rootNotionPageId || !/^[a-f0-9]{32}$/.test(rootNotionPageId)) {
+//   throw new Error(`Config error invalid "rootNotionPageId": ${rootNotionPageId}`)
+// }
 
 export default siteConfig({
   // the site's root Notion page (required)
-  rootNotionPageId: '7875426197cf461698809def95960ebf',
+  // rootNotionPageId: '131a6a6b2df58031a846e091589fc807',
+  rootNotionPageId,
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
